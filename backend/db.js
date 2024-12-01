@@ -1,7 +1,7 @@
+require("dotenv").config();
 const mongoose = require("mongoose");
 
-var mongoURL = 'mongodb+srv://Chathula:chatula2002@inventory.mbjab.mongodb.net/?retryWrites=true&w=majority&appName=Inventory'
-
+const mongoURL = process.env.MONGO_URL;
 
 mongoose.connect(mongoURL)
 
