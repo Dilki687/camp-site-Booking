@@ -1,0 +1,68 @@
+/* Container adjustments for better responsiveness */
+.container {
+    margin-top: 20px;
+  }
+  
+  .row {
+    margin-bottom: 20px;
+  }
+  
+  /* Adjust RangePicker and other elements for smaller screens */
+  @media (max-width: 768px) {
+    .col-md-3, .col-md-5 {
+      margin-bottom: 20px;
+    }
+  
+    .col-md-3, .col-md-5, .col-md-12 {
+      width: 100%;
+    }
+  
+    .form-control {
+      font-size: 14px; /* Adjust input font size on smaller screens */
+    }
+  
+    .btn-warning {
+      width: 100%; /* Full-width button on smaller screens */
+    }
+  
+    .row.justify-content-center {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .col-md-9 {
+      width: 100%; /* Full width for camplocations on small screens */
+    }
+  }
+  
+  /* Larger screens (Tablet, Desktop) */
+  @media (min-width: 768px) {
+    .col-md-3 {
+      width: 25%;
+    }
+  
+    .col-md-5 {
+      width: 40%;
+    }
+  
+    .col-md-9 {
+      width: 75%;
+    }
+  
+    .row.mt-3 {
+      justify-content: flex-end;
+    }
+  }
+  
+  /* For Mobile screens (very small devices like 480px) */
+  @media (max-width: 480px) {
+    .form-control {
+      font-size: 12px; /* Adjust font size further for mobile */
+    }
+  
+    .row.mt-5 {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  

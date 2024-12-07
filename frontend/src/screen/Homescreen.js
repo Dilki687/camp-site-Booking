@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import moment from "moment";
 import { DatePicker } from "antd";
 import { Link } from "react-router-dom";
+import "../styles/Homescreen.css"
 
 const { RangePicker } = DatePicker;
 
@@ -153,82 +154,78 @@ function Homescreen() {
 
   return (
     <div className="container">
-      <div className="row mt-5 bs">
-        <div className="col-md-3">
-          <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
-        </div>
+  <div className="row mt-5 bs">
+    <div className="col-md-3 col-12 mb-3">
+      <RangePicker format="DD-MM-YYYY" onChange={filterByDate} />
+    </div>
 
-        <div className="col-md-5">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Search camplocations"
-            value={searchkey}
-            onChange={(e) => {
-              setsearchkey(e.target.value);
-            }}
-            onKeyUp={filterBySearch}
-          />
-        </div>
+    <div className="col-md-5 col-12 mb-3">
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Search camplocations"
+        value={searchkey}
+        onChange={(e) => setsearchkey(e.target.value)}
+        onKeyUp={filterBySearch}
+      />
+    </div>
 
-        <div className="col-md-3">
-          <select
-            className="form-control"
-            value={type}
-            onChange={(e) => {
-              filterByType(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
-            <option value="RV">RV</option>
-            <option value="urban">Urban</option>
-          </select>
-        </div>
-      </div>
+    <div className="col-md-3 col-12 mb-3">
+      <select
+        className="form-control"
+        value={type}
+        onChange={(e) => filterByType(e.target.value)}
+      >
+        <option value="all">All</option>
+        <option value="RV">RV</option>
+        <option value="urban">Urban</option>
+      </select>
+    </div>
+  </div>
 
-      {/* Additional Requirements button below search bar */}
-      <div className="row mt-3">
-        <div className="col-md-12 text-right">
-          <button className="btn btn-warning" onClick={handleAdditionalRequirements}>
-            Additional Requirements
-          </button>
-        </div>
-      </div>
+  {/* Additional Requirements button below search bar */}
+  <div className="row mt-3">
+    <div className="col-md-12 text-center text-md-right">
+      <button className="btn btn-warning" onClick={handleAdditionalRequirements}>
+        Additional Requirements
+      </button>
+    </div>
+  </div>
 
-      <div className="row justify-content-center mt-5">
-        {loading ? (
-          <Loader />
-        ) : (
-          <>
-            {selectedCamplocation && (
-              <div className="col-md-9 mt-2">
+  <div className="row justify-content-center mt-5">
+    {loading ? (
+      <Loader />
+    ) : (
+      <>
+        {selectedCamplocation && (
+          <div className="col-md-9 col-12 mt-2">
+            <Camplocation
+              camplocation={selectedCamplocation}
+              fromdate={fromdate}
+              todate={todate}
+              bookingid={bookingid}
+            />
+          </div>
+        )}
+
+        {camplocations.map((camplocation) => {
+          if (camplocation._id !== selectedCamplocation?._id) {
+            return (
+              <div className="col-md-9 col-12 mt-2" key={camplocation._id}>
                 <Camplocation
-                  camplocation={selectedCamplocation}
+                  camplocation={camplocation}
                   fromdate={fromdate}
                   todate={todate}
-                  bookingid={bookingid}
                 />
               </div>
-            )}
-
-            {camplocations.map((camplocation) => {
-              if (camplocation._id !== selectedCamplocation?._id) {
-                return (
-                  <div className="col-md-9 mt-2" key={camplocation._id}>
-                    <Camplocation
-                      camplocation={camplocation}
-                      fromdate={fromdate}
-                      todate={todate}
-                    />
-                  </div>
-                );
-              }
-              return null;
-            })}
-          </>
-        )}
-      </div>
-    </div>
+            );
+          }
+          return null;
+        })}
+      </>
+    )}
+  </div>
+</div>
   );
 }
 

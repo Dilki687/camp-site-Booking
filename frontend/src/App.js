@@ -1,5 +1,5 @@
 import "./App.css";
-import Navigation from "./component/Navigation";
+// import Navigation from "./component/Navigation";
 import Navbar from "./component/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homescreen from "./screen/Homescreen";
@@ -118,7 +118,7 @@ function App() {
             path="/admin"
             element={
               <div className="content-container">
-                <Navigation />
+                {/* <Navigation /> */}
                 <Adminscreen />
               </div>
             }

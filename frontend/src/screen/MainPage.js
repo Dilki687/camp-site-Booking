@@ -166,15 +166,16 @@ function MainPage() {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
     background-color: #f0f8ff;
   }
 
   .form-box {
     background-color: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
   }
 
@@ -191,18 +192,22 @@ function MainPage() {
     color: #333;
   }
 
-  .form-box select, .form-box input[type="number"], .form-box input[type="date"] {
+  .form-box select,
+  .form-box input[type="number"],
+  .form-box input[type="date"] {
     margin-bottom: 15px;
     width: 100%;
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    font-size: 1em;
   }
 
   .radio-group-inline {
     display: flex;
     gap: 10px;
     margin-bottom: 15px;
+    flex-wrap: wrap;
   }
 
   .radio-group-inline label {
@@ -214,10 +219,10 @@ function MainPage() {
     width: 100%;
     background-color: #4c5f38;
     color: #fff;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -227,13 +232,13 @@ function MainPage() {
   }
 
   .form-box button.add-item-button {
-    width: 50%; /* Adjust width to make it smaller */
+    width: 100%;
     background-color: #6c757d;
     color: #fff;
-    padding: 8px; /* Smaller padding */
+    padding: 8px;
     border: none;
     border-radius: 5px;
-    font-size: 14px; /* Smaller font size */
+    font-size: 0.9em;
     cursor: pointer;
     margin-top: 10px;
     transition: background-color 0.3s ease;
@@ -241,6 +246,50 @@ function MainPage() {
 
   .form-box button.add-item-button:hover {
     background-color: #5a6268;
+  }
+
+  @media (max-width: 768px) {
+    .form-box {
+      padding: 15px;
+    }
+
+    .form-box h2 {
+      font-size: 1.5em;
+    }
+
+    .form-box select,
+    .form-box input[type="number"],
+    .form-box input[type="date"] {
+      font-size: 0.9em;
+    }
+
+    .form-box button.submit-button,
+    .form-box button.add-item-button {
+      font-size: 0.9em;
+      padding: 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .form-box {
+      padding: 10px;
+    }
+
+    .form-box h2 {
+      font-size: 1.2em;
+    }
+
+    .form-box select,
+    .form-box input[type="number"],
+    .form-box input[type="date"] {
+      font-size: 0.8em;
+    }
+
+    .form-box button.submit-button,
+    .form-box button.add-item-button {
+      font-size: 0.8em;
+      padding: 8px;
+    }
   }
 `}</style>
 

@@ -160,13 +160,13 @@ function Bookingscreen() {
       ) : camplocation ? (
         <div>
           <div className="row justify-content-center mt-5 bs">
-            <div className="col-md-6">
+            <div className="col-12 col-md-6 mb-3">
               <h1>{camplocation.name}</h1>
-              <img src={camplocation.imageurls[0]} className="bigimg" />
+              <img src={camplocation.imageurls[0]} className="bigimg img-fluid" />
             </div>
 
-            <div className="col-md-6">
-              <div style={{ textAlign: "right" }}>
+            <div className="col-12 col-md-6">
+              <div className="text-center text-md-right">
                 <h1>Booking Details</h1>
                 <hr />
                 <b>
@@ -176,7 +176,7 @@ function Bookingscreen() {
                 </b>
               </div>
 
-              <div style={{ textAlign: "right" }}>
+              <div className="text-center text-md-right">
                 <b>
                   <h1>Sub Total</h1>
                   <hr />
@@ -186,7 +186,7 @@ function Bookingscreen() {
                 </b>
               </div>
 
-              <div style={{ float: "right" }}>
+              <div className="text-center text-md-right">
                 {!bookingId ? (
                   <StripeCheckout
                     amount={totalamount * 100}
@@ -197,7 +197,7 @@ function Bookingscreen() {
                     <button className="btn btn-primary">Continue to checkout</button>
                   </StripeCheckout>
                 ) : (
-                  <button className="btn btn-primary mr-2" onClick={handleUpdatedData}>
+                  <button className="btn btn-primary" onClick={handleUpdatedData}>
                     Confirm Update
                   </button>
                 )}
