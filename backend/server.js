@@ -10,7 +10,7 @@ const reservationRoutes = require('./routes/reservationRoutes');
 app.use(cors(
     {
         origin: ["https://camp-site-booking-frontend.vercel.app/"],
-        methods: ["POST", "GET"],
+        methods: ["POST", "GET", "PUT"],
         credentials: true
     }
 ));
